@@ -19,9 +19,9 @@ class Gunball
     }
 
     /**
-     * @param integer $ball
+     * @param int $ball
      *
-     * @throws \Exception
+     * @throws GunballException
      *
      * @return \App\Gunball
      */
@@ -30,7 +30,7 @@ class Gunball
         $ball = (int) $ball;
 
         if ($ball < 1) {
-            throw new \Exception('Ball should be a positive number.');
+            throw new GunballException('Ball should be a positive number.');
         }
 
         $this->ball = $ball;
@@ -39,14 +39,14 @@ class Gunball
     }
 
     /**
-     * @throws \Exception
+     * @throws GunballException
      *
      * @return \App\Gunball
      */
     public function fire()
     {
         if ($this->ball == 0) {
-            throw new \Exception('No ball is found in the machine.');
+            throw new GunballException('No ball is found in the machine.');
         }
 
         $this->ball -= 1;
